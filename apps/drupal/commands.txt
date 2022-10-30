@@ -1,0 +1,22 @@
+For reference
+
+
+apt update; apt install iputils-ping -y
+
+composer require drush/drush
+
+drush -y site-install standard --db-url='mysql://root:5hvbg46549aq8bhzxpvn@mysql/drupal' --site-name=Example2
+
+drush theme:enable bartik ; drush config:set system.theme default bartik
+
+
+composer require drush/drush
+drush si --db-url=sqlite://sites/local.drupal/files/.ht.sqlite  --account-pass "1234" --site-name "site1" --yes
+
+cd /opt/drupal;
+drush si --db-url=sqlite://sites/local.drupal/files/.ht.sqlite --yes; 
+chown -R www-data:www-data web/sites web/modules web/themes; 
+rm -R /var/www/html;
+ln -sf /opt/drupal/web /var/www/html;
+rm -rf "$COMPOSER_HOME";
+apache2 -D FOREGROUND;

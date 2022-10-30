@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: drupalsites
+spec:
+  generators:
+    - git:
+        repoURL: https://gitlab.com/drbenham/drb456.git
+        revision: HEAD
+        files:
+        - path: "osp/**/config.json"
+  template:
+    metadata:
+      name: 'drupal-{{tenant.name}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://gitlab.com/drbenham/drb456.git
+        targetRevision: HEAD
+        path: "apps/drupal"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: ns-{{k8s_cluster.namespace}}
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+          - DeleteNamespace=true # wishful thinking ;)
+        automated:
+          prune: true
+          allowEmpty: true
+          selfHeal: true
+

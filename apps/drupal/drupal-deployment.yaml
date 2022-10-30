@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: drupal
+  labels:
+    app: drupal
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: drupal
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dr-pv-claim
+  labels:
+    app: drupal
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drupal
+  labels:
+    app: drupal
+spec:
+  selector:
+    matchLabels:
+      app: drupal
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: drupal
+        tier: frontend
+    spec:
+      volumes:
+        - name: drupal-persistent-storage
+          persistentVolumeClaim:
+            claimName: dr-pv-claim
+      containers:
+        - image: drbenham/osp-drupal:latest     
+          name: drupal
+          imagePullPolicy: Always
+          env:
+            - name: DB_HOST
+              value: drupal-mysql
+            - name: DB_NAME
+              value: drupal
+            - name: DB_USER
+              value: drupal
+            - name: DB_PASSWORD
+              value: ukd637k453erf2vq6x9m
+          ports:
+          - containerPort: 80
+            name: drupal
+          volumeMounts:
+          - name: drupal-persistent-storage
+            mountPath: /var/www/html/web/sites/default/files
+      imagePullSecrets:
+        - name: regcred

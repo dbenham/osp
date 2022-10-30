@@ -1,0 +1,13 @@
+{
+    "tenant": {
+      "owner": "davebenham@tenant4.com",
+      "name": "four",
+      "id": "3"
+    },
+    "k8s_cluster": {
+      "owner": "admin@company.com",
+      "address": "https://kubernetes.default.svc",
+      "namespace": "drb-4"
+    }
+  }
+  
