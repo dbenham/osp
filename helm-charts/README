@@ -1,0 +1,18 @@
+# commands
+
+```
+export CR_OWNER=dbenham
+export CR_GIT_REPO=osp
+export CR_PACKAGE_PATH=.repo
+export CR_TOKEN="..."
+export CR_GIT_BASE_URL="https://api.github.com/"
+export CR_GIT_UPLOAD_URL="https://uploads.github.com/"
+export CR_SKIP_EXISTING=true
+
+
+
+cr package drupal-helm
+
+cr upload drupal-helm
+
+```
