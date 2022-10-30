@@ -1,18 +1,22 @@
 # commands
 
+## Environment variables needed for package upload
 ```
 export CR_OWNER=dbenham
 export CR_GIT_REPO=osp
 export CR_PACKAGE_PATH=.repo
-export CR_TOKEN="..."
+export CR_TOKEN="<redacted>"
 export CR_GIT_BASE_URL="https://api.github.com/"
 export CR_GIT_UPLOAD_URL="https://uploads.github.com/"
 export CR_SKIP_EXISTING=true
 
+```
 
+# To upload package
 
+```
+edit drupal-help/Chart.yaml <<< increment version numbers as needed >>>
 cr package drupal-helm
-
 cr upload drupal-helm
-
+cr index .repo
 ```
