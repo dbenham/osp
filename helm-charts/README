@@ -1,4 +1,17 @@
-# commands
+# building and uploading the helm charts
+
+## install chart-releaser
+```
+$ brew tap helm/tap
+$ brew install chart-releaser
+```
+
+These two directories are used by github pages to serve the helm repos
+
+.cr-index
+.repo
+
+
 
 ## Environment variables needed for package upload
 ```
@@ -12,7 +25,7 @@ export CR_SKIP_EXISTING=true
 
 ```
 
-# To upload package
+# To make and upload helm package
 
 ```
 edit drupal-help/Chart.yaml <<< increment version numbers as needed >>>
