@@ -1,6 +1,5 @@
 #!/bin/bash
 helm package drupal-helm
-cr package drupal-helm
 cr upload drupal-helm
 cr index .repo
 cp .cr-index/index.yaml ./
