@@ -33,3 +33,10 @@ cr package drupal-helm
 cr upload drupal-helm
 cr index .repo
 ```
+
+# helm repo commands
+```
+helm repo add osp-helm-charts https://dbenham.github.io/osp/helm-charts
+helm repo remove osp-helm-charts
+helm repo search osp
+```
