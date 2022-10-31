@@ -3,7 +3,7 @@ entries:
   osp-drupal-helm:
   - apiVersion: v2
     appVersion: 0.0.2
-    created: "2022-10-30T20:40:19.069673-04:00"
+    created: "2022-10-30T20:43:06.653299-04:00"
     description: Helm chart for deploying an osp drupal tenant
     digest: 12b6d87d1f58aa1167fe9efde172a93b3e889669762ceec63cb29daad84d3321
     name: osp-drupal-helm
@@ -12,13 +12,13 @@ entries:
     - https://github.com/dbenham/osp/releases/download/osp-drupal-helm-0.0.2/osp-drupal-helm-0.0.2.tgz
     version: 0.0.2
   - apiVersion: v2
-    appVersion: 0.0.4
-    created: "2022-10-30T20:40:18.829385-04:00"
+    appVersion: 0.0.1
+    created: "2022-10-30T20:43:06.474765-04:00"
     description: Helm chart for deploying an osp drupal tenant
-    digest: 7f9de9a5d1f8c3f13b55e3b8fb12f3e29e8aff39c338509b134f5d45e6177d25
+    digest: 20e29c6bf381e2779b530167383feb4da50d0ab151d312a827500894e48d05d2
     name: osp-drupal-helm
     type: application
     urls:
     - https://github.com/dbenham/osp/releases/download/osp-drupal-helm-0.0.1/osp-drupal-helm-0.0.1.tgz
     version: 0.0.1
-generated: "2022-10-30T20:40:19.069684-04:00"
+generated: "2022-10-30T20:43:06.653318-04:00"
