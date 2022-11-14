@@ -33,6 +33,6 @@ spec:
             mountPath: /var/www/html/web/sites/default/files
           envFrom:
             configMapRef:
-                name: TENANT_NAME
+                name: osp-tenant-configmap
       imagePullSecrets:
         - name: regcred
