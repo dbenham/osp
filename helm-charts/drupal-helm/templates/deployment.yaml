@@ -31,5 +31,8 @@ spec:
           volumeMounts:
           - name: drupal-persistent-storage
             mountPath: /var/www/html/web/sites/default/files
+          envFrom:
+            configMapRef:
+                name: TENANT_NAME
       imagePullSecrets:
         - name: regcred

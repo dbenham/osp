@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: osp-tenant-configmap
 data:
-  tenant_name: {{ .Values.osptenantname }}
+  TENANT_NAME: {{ .Values.osptenantname }}
