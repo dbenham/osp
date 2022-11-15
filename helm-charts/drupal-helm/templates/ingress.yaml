@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: {{ .Values.osptenantname }}.osp.org
+    - host: {{ .Values.osptenantname }}.onescienceplace.org
       http:
         paths:
           - path: /
