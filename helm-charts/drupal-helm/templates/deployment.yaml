@@ -32,7 +32,7 @@ spec:
           - name: drupal-persistent-storage
             mountPath: /var/www/html/web/sites/default/files
           envFrom:
-            - configMapRef:
+          - configMapRef:
               name: osp-tenant-configmap
       imagePullSecrets:
         - name: regcred
