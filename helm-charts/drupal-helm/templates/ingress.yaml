@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: osp-org
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/group.name: osp-ingress-group-1
+    alb.ingress.kubernetes.io/load-balancer-name: osp-org-1
+spec:
+  ingressClassName: alb
+  rules:
+    - host: {{ .Values.osptenantname }}.osp.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: drupal
+                port:
+                  number: 80
