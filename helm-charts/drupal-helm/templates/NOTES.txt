@@ -1,1 +1,3 @@
 Currently the NOTES.txt file is empty.
+
+If you want to add any messages to the user after they install your helm chart, add them to this file
